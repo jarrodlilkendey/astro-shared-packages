@@ -1,0 +1,15 @@
+{
+  "name": "@jarrodlilkendey/workspace",
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.17.0",
+  "scripts": {
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.8",
+    "typescript": "^5.6.3"
+  }
+}
