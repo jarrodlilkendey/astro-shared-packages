@@ -1,0 +1,33 @@
+@layer theme, utilities;
+
+@layer theme {
+  :root {
+    --color-bg: 255 255 255;
+    --color-fg: 17 24 39;
+    --color-primary: 34 197 94;
+    --color-primary-contrast: 255 255 255;
+    --radius-md: 0.5rem;
+  }
+
+  [data-theme="cleaning"] {
+    --color-primary: 59 130 246;
+  }
+  [data-theme="landscaping"] {
+    --color-primary: 34 197 94;
+  }
+}
+
+@layer utilities {
+  .btn-base {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-[var(--radius-md)] font-medium;
+  }
+  .btn-primary {
+    background-color: rgb(var(--color-primary));
+    color: rgb(var(--color-primary-contrast));
+  }
+  .card {
+    @apply rounded-[var(--radius-md)] shadow p-4;
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-fg));
+  }
+}

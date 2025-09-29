@@ -1,0 +1,9 @@
+{
+  "name": "@jarrodlilkendey/tokens",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": { ".": "./src/tokens.css" },
+  "files": ["src"],
+  "publishConfig": { "registry": "https://npm.pkg.github.com" },
+  "peerDependencies": { "tailwindcss": ">=4" }
+}
