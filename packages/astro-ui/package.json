@@ -1,0 +1,24 @@
+{
+  "name": "@jarrodlilkendey/astro-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/*": "./src/components/*"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "peerDependencies": {
+    "astro": ">=4",
+    "tailwindcss": ">=4",
+    "typescript": ">=5"
+  },
+  "devDependencies": {
+    "astro": "^4.15.0",
+    "typescript": "^5.6.3"
+  }
+}
