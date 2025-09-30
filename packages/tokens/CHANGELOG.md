@@ -1,5 +1,17 @@
 # @jarrodlilkendey/tokens
 
+## 1.2.0
+
+### Minor Changes
+
+- test minor bump, and leave apps/playground untouched
+
+## 1.1.2
+
+### Patch Changes
+
+- Make packages public
+
 ## 1.1.1
 
 ### Patch Changes
