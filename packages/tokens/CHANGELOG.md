@@ -1,5 +1,11 @@
 # @jarrodlilkendey/tokens
 
+## 1.2.1
+
+### Patch Changes
+
+- added vitest tests
+
 ## 1.2.0
 
 ### Minor Changes
