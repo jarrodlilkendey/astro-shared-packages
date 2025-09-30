@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.6.0",
+    "@vitest/coverage-v8": "^3.2.4",
     "astro": "^4.15.0",
     "typescript": "^5.6.3",
     "vitest": "^3.2.4"
@@ -33,6 +34,7 @@
     "url": "https://github.com/jarrodlilkendey/astro-shared-packages/issues"
   },
   "scripts": {
-    "test": "vitest"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   }
 }
