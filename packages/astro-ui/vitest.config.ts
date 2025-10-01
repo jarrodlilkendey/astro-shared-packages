@@ -3,8 +3,27 @@ import { getViteConfig } from "astro/config";
 
 export default getViteConfig({
   test: {
-    include: ["src/**/*.test.{ts,tsx}"],
+    name: "astro-component-testing",
     environment: "node",
+    include: ["src/components/**.test.{ts,tsx}"],
+    setupFiles: ["./vitest.setup.node.ts"],
+    globals: true,
+
+    projects: [
+      {
+        name: "astro-component-testing",
+        extends: true,
+      },
+      {
+        test: {
+          name: "react-component-testing",
+          environment: "jsdom",
+          include: ["src/react/**/*.test.tsx"],
+          setupFiles: ["./vitest.setup.jsdom.ts"],
+        },
+      },
+    ],
+
     coverage: {
       provider: "v8",
       reportsDirectory: "./coverage",

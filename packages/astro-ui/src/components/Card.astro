@@ -1,1 +1,12 @@
-<div class="card">Card</div>
+---
+import { cn } from "../utils/cn";
+
+export interface CardProps {
+  className?: string;
+}
+
+const { className } = Astro.props as CardProps;
+---
+<div class={cn("card", className)}>
+    Card
+</div>
