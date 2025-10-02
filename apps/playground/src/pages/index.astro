@@ -28,17 +28,11 @@ const headerProps = {
 const footerProps = {
 	siteName: "Astro UI Library Playground",
 	siteHomeUrl: "/",
+	logoImageUrl: "/logo.svg",
+	logoImageAlt: "Astro UI Library Playground Logo",
 	footerLinks: [
 		{ label: "Home", href: "/" },
-		{
-			label: "Services",
-			href: "/services",
-			children: [
-				{ label: "Service 1", href: "/services/service-one"},
-				{ label: "Service 2", href: "/services/service-two"},
-				{ label: "Service 3", href: "/services/service-three"},
-			]
-		},
+		{ label: "Services", href: "/services" },
 	],
 };
 ---
@@ -53,7 +47,7 @@ const footerProps = {
 	</head>
 	<body class="flex min-h-screen flex-col">
 		<h1>Astro Shared Packages UI Library</h1>
-		
+
 		<h2>Header</h2>
 		<Header {...headerProps} />
 		
