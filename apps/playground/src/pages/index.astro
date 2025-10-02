@@ -1,7 +1,46 @@
 ---
 import "../styles/global.css";
 
+import { Header } from "@jarrodlilkendey/astro-ui";
+import { Footer } from "@jarrodlilkendey/astro-ui";
 import { Card } from "@jarrodlilkendey/astro-ui";
+
+const headerProps = {
+	siteName: "Astro UI Library Playground",
+	siteHomeUrl: "/",
+	logoImageUrl: "/logo.svg",
+	logoImageAlt: "Astro UI Library Playground Logo",
+	headerLinks: [
+		{ label: "Home", href: "/" },
+		{
+			label: "Services",
+			href: "/services",
+			children: [
+				{ label: "Service 1", href: "/services/service-one"},
+				{ label: "Service 2", href: "/services/service-two"},
+				{ label: "Service 3", href: "/services/service-three"},
+			]
+		},
+	],
+	cta: { label: "Book a call", href: "/book" },
+};
+
+const footerProps = {
+	siteName: "Astro UI Library Playground",
+	siteHomeUrl: "/",
+	footerLinks: [
+		{ label: "Home", href: "/" },
+		{
+			label: "Services",
+			href: "/services",
+			children: [
+				{ label: "Service 1", href: "/services/service-one"},
+				{ label: "Service 2", href: "/services/service-two"},
+				{ label: "Service 3", href: "/services/service-three"},
+			]
+		},
+	],
+};
 ---
 
 <html lang="en">
@@ -12,12 +51,38 @@ import { Card } from "@jarrodlilkendey/astro-ui";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
-		<Card headerClass="text-xl">
-			<span slot="header">Header</span>
-			Body
-			<div slot="footer">Footer</div>
-		</Card>
+	<body class="flex min-h-screen flex-col">
+		<h1>Astro Shared Packages UI Library</h1>
+		
+		<h2>Header</h2>
+		<Header {...headerProps} />
+		
+		<div class="flex-grow container mx-auto px-4 mt-2">
+
+			<h2>Cards</h2>
+			<h3>Problem Card</h3>
+			<Card className="text-xl">
+				<span slot="header">Header</span>
+				Body
+				<div slot="footer">Footer</div>
+			</Card>
+			
+			<h3>Expertise Card</h3>
+			
+			<h3>Service Card</h3>
+			
+			<h3>Benefit Card</h3>
+			
+			<h3>Process Card</h3>
+			
+			<h3>FAQ Card</h3>
+			
+			<h2>Tables</h2>
+			
+			<h3>Features Comparison Table</h3>
+		</div>
+
+		<h2>Footer</h2>
+		<Footer {...footerProps} />
 	</body>
 </html>

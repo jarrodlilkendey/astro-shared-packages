@@ -1,2 +1,8 @@
-@import "@jarrodlilkendey/tokens"; /* tokens & utilities */
-@import "tailwindcss"; /* Tailwind v4 core */
+/* Tailwind v4 core */
+@import "tailwindcss";
+
+/* tokens & utilities */
+@import "@jarrodlilkendey/tokens";
+
+/* Tailwind needs to also scan your UI package's source files */
+@source "../../node_modules/@jarrodlilkendey/astro-ui/src";

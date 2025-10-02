@@ -3,6 +3,8 @@ import tailwind from "@tailwindcss/vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import react from "@astrojs/react";
+
 // Allow the monorepo root (…/astro-shared-packages) and its node_modules
 const repoRoot = path.resolve(
   fileURLToPath(new URL("../../", import.meta.url))
@@ -19,4 +21,6 @@ export default defineConfig({
       },
     },
   },
+
+  integrations: [react()],
 });
