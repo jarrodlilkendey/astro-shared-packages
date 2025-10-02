@@ -1,0 +1,56 @@
+---
+import { cn } from "../utils/cn";
+
+import { Copyright } from "../react/Copyright";
+
+import type { NavLink } from "../types";
+
+export interface FooterProps {
+  className?: string;
+  siteName: string;
+  siteHomeUrl: string;
+  logoImageUrl?: string;
+  logoImageAlt?: string;
+  footerLinks: NavLink[];
+}
+
+const {
+  className,
+  siteName,
+  siteHomeUrl,
+  logoImageUrl,
+  logoImageAlt,
+  footerLinks,
+} = Astro.props as FooterProps;
+---
+<footer class={cn("bg-background border-t-border border-1 py-2", className)}>
+    <div class="flex justify-center">
+      {logoImageUrl && (
+        <a href={siteHomeUrl}>
+          <img src={logoImageUrl} alt={logoImageAlt} />
+        </a>
+      )}
+
+    </div>
+    
+    <p class="text-center"><a class="link" href={siteHomeUrl}>{siteName}</a></p>
+    
+    <Copyright client:load />
+
+    <ul class="flex justify-center">
+        {footerLinks.map((link: NavLink, index: number) => (
+            <li>
+              <a
+                href={link.href}
+                class="link px-1"
+            >
+                <div class="flex">
+                    {link.label} {index != footerLinks.length - 1 && <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                    </svg>}
+                </div>
+              </a>
+            </li>
+        ))}
+    </ul>
+</footer>

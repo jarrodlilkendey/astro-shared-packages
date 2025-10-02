@@ -1,0 +1,80 @@
+---
+import { cn } from "../utils/cn";
+
+import type { NavLink } from "../types";
+
+export interface HeaderProps {
+  className?: string;
+  siteName: string;
+  siteHomeUrl: string;
+  logoImageUrl?: string;
+  logoImageAlt?: string;
+  headerLinks: NavLink[];
+  cta: NavLink;
+}
+
+const {
+  className,
+  siteName,
+  siteHomeUrl,
+  logoImageUrl,
+  logoImageAlt,
+  headerLinks,
+  cta
+} = Astro.props as HeaderProps;
+---
+    <nav class={cn("flex bg-background border-b-border border-b-1 p-4 flex-row", className)}>
+      {logoImageUrl && (
+        <a href={siteHomeUrl}>
+          <img src={logoImageUrl} alt={logoImageAlt} />
+        </a>
+      )}
+      <p class="ms-2 text-2xl">
+        <a href={siteHomeUrl}>{siteName}</a>
+      </p>
+      <div class="flex ml-auto">
+        <ul class="flex">
+          {headerLinks.map((link: NavLink) => (
+            <li class="relative group">
+              <a
+                class="flex px-2 link"
+                href={link.href}
+              >
+                {link.label}
+                {link.children && <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    class="w-6 h-6"
+                    width="24"
+                    height="24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>}
+              </a>
+
+              {link.children && (
+                <ul class="absolute left-0 mt-2 hidden w-40 rounded-lg bg-white shadow-lg group-hover:block">
+                  {link.children.map((child: NavLink) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        class="block px-4 py-2 hover:bg-gray-100 hover:underline hover:underline-offset-4"
+                      >
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <a class="btn" href={cta.href}>
+          {cta.label}
+        </a>
+      </div>
+    </nav>
